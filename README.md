@@ -4,28 +4,28 @@ Video Stitcher m3u8 is a Node.js library designed to simplify the process of dow
 
 ### Install
 
-You'll need to have ffmpeg installed and accessible through the terminal.
+Ensure ffmpeg is installed and can be accessed via the terminal.
 
-`npm install` then...
+Run `npm install`, then follow the usage instructions.
 
 ### How to Use this Project
 
-There's a file called `header.js` in the root of the directory. It's used for the REST api. Modify the file to suit your needs.
+Modify `header.js` in the project's root directory to configure the REST API.
 
-1) Copy the contents of your *.m3u8 file into the `file.m3u8` in the root of the directory.
+1) Place your \*.m3u8 file content into `file.m3u8` in the root directory.
 
-2) Run the project with `node app.js`
+2) Start the application with `node app.js`.
 
-3) Using Postman/Insomia/Thunder Client/etc hit this endpoint:
+3) Use a tool like Postman, Insomnia, or Thunder Client to send a request to:
 
-    `http://localhost:3000/api/createfinalvideo?video_name={{Name of your video}}`
+    `http://localhost:3000/api/createfinalvideo?video_name={{Your Video Name}}`
 
-It'll download all the video chunks to the `video_shards` folder in sequence and then stitch them together into a single *.mp4 video.
+The application will download the video segments to `video_shards` and then merge them into a single \*.mp4 file.
 
-### How it works
+### How it Works
 
-When you hit the endoint, the server scrapes all the http urls in your *.m3u8 file, creates a `links.js` file which holds an array of the links and then and downloads them to the `video_shards` folder. Once all the links are downloaded it uses `ffmpeg` to create a single video file. At the moment, it stitches together video chunks of ~200 videos. Depending on how many files need to be downloaded, it'll create several intermediate batch videos before stitching those into the final video. The reason for this is that ffmpeg can crash if the number of videos is too large.
+Upon receiving a request, the server extracts HTTP URLs from your \*.m3u8 file, generating a `links.js` file with these URLs. It then downloads the segments to `video_shards`. Utilizing ffmpeg, it combines about 200 video chunks at a time to avoid potential crashes due to large numbers of files, eventually resulting in your final video file.
 
 ### Notes
 
-As is, it stitches *.mp4 videos together. This project can be modified to do different formats as well as audio.
+By default, the project stitches \*.mp4 videos. It can be modified for other formats and audio.
