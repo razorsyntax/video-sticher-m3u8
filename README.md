@@ -24,7 +24,7 @@ It'll download all the video chunks to the `video_shards` folder in sequence and
 
 ### How it works
 
-When you hit the endoint, the server scrapes all the http urls in your *.m3u8 file, creates a `links.js` file which holds an array of the links and then and downloads them to the `video_shards` folder. Once all the links are downloaded it uses `ffmpeg` to create a single video file. At the moment, it stitches together video chunks of ~200 videos. Depending on how many filmes need to be downloaded, it'll create several intermediate batch videos before stitching those into the final video. The reason for this is that ffmpeg can crash if the number of videos is too large.
+When you hit the endoint, the server scrapes all the http urls in your *.m3u8 file, creates a `links.js` file which holds an array of the links and then and downloads them to the `video_shards` folder. Once all the links are downloaded it uses `ffmpeg` to create a single video file. At the moment, it stitches together video chunks of ~200 videos. Depending on how many files need to be downloaded, it'll create several intermediate batch videos before stitching those into the final video. The reason for this is that ffmpeg can crash if the number of videos is too large.
 
 ### Notes
 
