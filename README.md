@@ -1,4 +1,4 @@
-# Video Stitcher m3u8
+# m3u8 Video Stitcher
 
 Video Stitcher m3u8 is a Node.js project designed to simplify the process of downloading and stitching together video segments that are streamed using [*.m3u8](https://docs.fileformat.com/audio/m3u8/) manifest files. These manifest files, commonly used by many websites for video streaming, break down video content into smaller, manageable chunks for easier delivery. However, this segmentation can make it challenging to download and store these videos locally. This project addresses this challenge by providing a streamlined way to download these segmented videos and combine them into a single, continuous mp4 file.
 
